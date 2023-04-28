@@ -1,10 +1,21 @@
 // Write your JS code here
+import {withRouter} from 'react-router-dom'
 import './index.css'
+import Cookie from 'js-cookie'
 
-const LogoutButton = () => (
-  <button type="button" className="button">
-    About Router
-  </button>
-)
+const LogoutButton = props => {
+  const {history} = props
+  const onClickLogout = () => {
+    Cookie.remove('jwt_token')
+    // const {history} = props
+    history.replace('/login')
+  }
 
-export default LogoutButton
+  return (
+    <button type="button" className="button" onClick={onClickLogout}>
+      Logout
+    </button>
+  )
+}
+
+export default withRouter(LogoutButton)

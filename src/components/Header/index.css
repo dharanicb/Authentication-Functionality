@@ -11,3 +11,8 @@
   display: flex;
   justify-content: center;
 }
+li {
+  list-style-type: none;
+  text-decoration: underline;
+  color: blueviolet;
+}
